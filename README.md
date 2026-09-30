@@ -101,6 +101,20 @@ Picking between them — which effect belongs on which surface, and where every 
 
 It also documents the three design references it is built to work with: [design-references.md](skills/ouu-shiit/reference/design-references.md).
 
+## Before you build it, check if it exists
+
+Four of these effects ship as free, copy-paste React components in public shadcn registries, with the ordinary UI around them included. The skill checks there first when a project is already React with shadcn configured — a maintained component beats a hand-rolled scene.
+
+| Registry | What it gives you | Cost |
+|---|---|---|
+| [Cult UI](https://www.cult-ui.com) | The closest overlap with this skill: distorted glass, liquid metal, shader lens blur, animated gradient and texture backgrounds | MIT. Pro blocks are paid and excluded. |
+| [Skiper UI](https://skiper-ui.com) | Unusual interaction moments: dynamic island, token swaps, View-Transition theme toggles, scroll marquees | Free tier plus a paid Pro tier. **The free tier requires attribution**, and Pro is excluded. |
+| [Watermelon UI](https://ui.watermelon.sh) | Breadth: 260+ components, blocks, dashboards and templates to surround the one effect. Hosted MCP server, no API key. | MIT, free |
+
+The paid tiers of all three are deliberately out of scope — the reference is written so an agent never configures a licence key or trips a paywall, and it flags the Skiper attribution requirement instead of quietly absorbing it. Details in [ui-registries.md](skills/ouu-shiit/reference/ui-registries.md).
+
+A registry component is not exempt from the contract. These libraries rarely honour `prefers-reduced-motion` on their own, several allocate a WebGL context, and several bind scroll listeners that will fight a smooth-scroll library — so the same six rules below apply to code you installed rather than wrote.
+
 ## How it works
 
 Direction comes first. The skill reads impeccable's mode and visual world, or falls back to the taste skill's motion budget for a greenfield marketing page. Then it names the effect's job in one sentence, loads exactly one reference, and builds against the contract.
@@ -124,6 +138,7 @@ skills/ouu-shiit/
 └── reference/
     ├── usage-map.md        where each effect belongs, and where it does not
     ├── design-references.md  impeccable, the taste skill, the DESIGN.md catalog
+    ├── ui-registries.md    Cult UI, Skiper UI, Watermelon UI — the free tiers
     ├── react-three-fiber.md
     ├── spline.md
     ├── liquid-glass.md
@@ -147,7 +162,7 @@ Read it for structure and calibration, then derive the actual palette and type f
 
 ## Credits
 
-Builds on the work of [`pmndrs/react-three-fiber`](https://github.com/pmndrs/react-three-fiber), [Spline](https://spline.design), [`pbakaus/impeccable`](https://github.com/pbakaus/impeccable), [`Leonxlnx/taste-skill`](https://github.com/Leonxlnx/taste-skill), [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills), and the [skills](https://github.com/vercel-labs/skills) CLI. Each linked technology belongs to its own authors; this repository only documents how to use them well.
+Builds on the work of [`pmndrs/react-three-fiber`](https://github.com/pmndrs/react-three-fiber), [Spline](https://spline.design), [`pbakaus/impeccable`](https://github.com/pbakaus/impeccable), [`Leonxlnx/taste-skill`](https://github.com/Leonxlnx/taste-skill), [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills), [`nolly-studio/cult-ui`](https://github.com/nolly-studio/cult-ui), [Skiper UI](https://skiper-ui.com), [`WatermelonCorp`](https://github.com/WatermelonCorp), and the [skills](https://github.com/vercel-labs/skills) CLI. Each linked technology and component library belongs to its own authors; this repository only documents how to use them well, and documents their free tiers only.
 
 ## License
 

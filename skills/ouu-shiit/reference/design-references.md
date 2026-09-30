@@ -72,5 +72,6 @@ https://raw.githubusercontent.com/VoltAgent/awesome-design-md/main/design-md/<br
 
 1. **Direction** — impeccable (or design-taste-frontend when the brief is a marketing page with no committed world). Settle the mode, the world, and the motion budget.
 2. **Effect** — this skill. Pick one effect from [usage-map.md](usage-map.md), load its reference, build it against the contract.
-3. **Tokens** — the DESIGN.md catalog, when a named reference needs concrete values.
-4. **Audit** — web-design-guidelines for the interface rules, the effect's own Pitfalls section for the GPU and scroll rules, and design-taste-frontend's pre-flight check for the taste rules. One batched pass, then stop.
+3. **Pre-built** — [ui-registries.md](ui-registries.md), when the effect is one Cult UI, Skiper UI, or Watermelon UI already ships as a free component. Free tiers only.
+4. **Tokens** — the DESIGN.md catalog, when a named reference needs concrete values.
+5. **Audit** — web-design-guidelines for the interface rules, the effect's own Pitfalls section for the GPU and scroll rules, and design-taste-frontend's pre-flight check for the taste rules. One batched pass, then stop.

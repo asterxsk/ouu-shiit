@@ -21,6 +21,20 @@ Pick by **job**, then confirm against **visitor mode**. The mode names what succ
 | **Lenis** ([ref](lenis.md)) | Whole-page scroll feel on Persuade/Experience surfaces; scroll-driven storytelling | Portfolio, campaign microsites, pinned-section sequences | Operate dashboards, docs, long tables, search results, mobile-first sites where native momentum is better |
 | **StringTune** ([ref](stringtune.md)) | Scroll-choreographed marketing sections with many small moments | Campaign pages, cursor-reactive detail work | Anywhere a differently-supported library would be safer — it is young and thinly documented |
 
+## Check the pre-built version first
+
+Four of these effects already exist as free, copy-paste React components in shadcn registries, with the ordinary UI around them included. When the project is React with shadcn configured, look there before writing shader or WebGL code — a component someone else maintains is smaller than a scene you hand-build, and easier for the user's team to edit later.
+
+| Effect | Registry component | Skip building it when |
+|---|---|---|
+| Liquid glass | Cult UI `distorted-glass` | The project is React + shadcn; a fixed glass panel is enough; there is no need to react to live DOM behind it |
+| Liquid metal | Cult UI `hero-liquid-metal`, `metal-button` | The moment is a styled brand accent, not a bespoke shader on the user's own logo asset |
+| Shader blur / refraction | Cult UI `shader-lens-blur`, `morph-surface` | The blur is decorative; the effect does not need to track app state |
+| Animated gradient background | Cult UI `bg-animated-gradient`, `canvas-fractal-grid`; Watermelon UI animated backgrounds | The background is not the page's one focal moment, or the brief does not need a configurable gradient |
+| Scroll-reactive marquee / section | Skiper UI scroll components | Nothing else on the page owns scroll |
+
+Do not use a registry component as a substitute for the decision. It still has to pass "what job does this do" and it still has to satisfy the contract — in particular, none of these libraries reliably honours `prefers-reduced-motion` on its own, and several bind scroll listeners that will fight a smooth-scroll library. Full detail, including which tiers are paid and which require attribution, is [ui-registries.md](ui-registries.md).
+
 ## Choosing between the two 3D paths
 
 | | Spline | react-three-fiber |
