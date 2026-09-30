@@ -43,7 +43,7 @@ On Windows, from Git Bash the same script works; from `cmd.exe` use `install.cmd
 
 | Skill | Role | Source |
 |---|---|---|
-| **ouu-shiit** | The effect layer. Seven GPU and scroll technologies, one contract. | `asterxsk/ouu-shiit` |
+| **ouu-shiit** | The effect layer. Eight GPU and scroll technologies, one contract. | `asterxsk/ouu-shiit` |
 | **impeccable** | Owns visual direction, craft, and analysis. The skill this one defers to. | `pbakaus/impeccable` |
 | **design-taste-frontend** | Brief inference, three design dials, anti-slop bans, a pre-flight check. | `Leonxlnx/taste-skill` |
 | **web-design-guidelines** | The audit pass. Fetches the current Web Interface Guidelines and reviews against them. | `vercel-labs/agent-skills` |
@@ -85,7 +85,7 @@ Restart your agent afterwards so it picks up the new skills.
 
 ## What's inside
 
-Seven technologies, each with its own reference file covering how to use it, where to use it, its performance and accessibility obligations, and the pitfalls that bite in practice.
+Eight technologies, each with its own reference file covering how to use it, where to use it, its performance and accessibility obligations, and the pitfalls that bite in practice.
 
 | Technology | Delivers | Reference |
 |---|---|---|
@@ -95,23 +95,27 @@ Seven technologies, each with its own reference file covering how to use it, whe
 | **ShaderGradient** | Animated WebGL gradient backgrounds | [reference](skills/ouu-shiit/reference/shader-gradient.md) |
 | **liquid-logo** | GLSL displacement on a logo texture — liquid-metal brand moments | [reference](skills/ouu-shiit/reference/liquid-logo.md) |
 | **Lenis** | Interpolated native smooth scroll | [reference](skills/ouu-shiit/reference/lenis.md) |
+| **Motion** | Scroll-linked reveals, parallax, layout and exit animation. Reads scroll without owning it, so it composes with Lenis | [reference](skills/ouu-shiit/reference/motion.md) |
 | **StringTune** | CSS-variable scroll and cursor choreography | [reference](skills/ouu-shiit/reference/stringtune.md) |
 
-Picking between them — which effect belongs on which surface, and where every one of them is the wrong answer — is [usage-map.md](skills/ouu-shiit/reference/usage-map.md). Those seven names are **GitHub repos, not npm package names**, and more than one unrelated repo shares several of them, so the reference files open with the real repos and which one to pick.
+Picking between them — which effect belongs on which surface, and where every one of them is the wrong answer — is [usage-map.md](skills/ouu-shiit/reference/usage-map.md). Those eight names are **GitHub repos, not npm package names**, and more than one unrelated repo shares several of them, so the reference files open with the real repos and which one to pick.
 
 It also documents the three design references it is built to work with: [design-references.md](skills/ouu-shiit/reference/design-references.md).
 
 ## Before you build it, check if it exists
 
-Four of these effects ship as free, copy-paste React components in public shadcn registries, with the ordinary UI around them included. The skill checks there first when a project is already React with shadcn configured — a maintained component beats a hand-rolled scene.
+Several of these effects ship as free, copy-paste React components in public shadcn registries, with the ordinary UI around them included. The skill checks there first when a project is already React with shadcn configured — a maintained component beats a hand-rolled scene.
 
 | Registry | What it gives you | Cost |
 |---|---|---|
 | [Cult UI](https://www.cult-ui.com) | The closest overlap with this skill: distorted glass, liquid metal, shader lens blur, animated gradient and texture backgrounds | MIT. Pro blocks are paid and excluded. |
+| [Kokonut UI](https://kokonutui.com) | Small animated details rather than whole compositions: `particle-button`, `shimmer-text`, `liquid-glass-card`, `ai-prompt`. Built on Motion, with a machine-readable registry | Free and open source. Kokonut UI Pro is paid and excluded. |
 | [Skiper UI](https://skiper-ui.com) | Unusual interaction moments: dynamic island, token swaps, View-Transition theme toggles, scroll marquees | Free tier plus a paid Pro tier. **The free tier requires attribution**, and Pro is excluded. |
 | [Watermelon UI](https://ui.watermelon.sh) | Breadth: 260+ components, blocks, dashboards and templates to surround the one effect. Hosted MCP server, no API key. | MIT, free |
 
-The paid tiers of all three are deliberately out of scope — the reference is written so an agent never configures a licence key or trips a paywall, and it flags the Skiper attribution requirement instead of quietly absorbing it. Details in [ui-registries.md](skills/ouu-shiit/reference/ui-registries.md).
+The paid tiers of all four are deliberately out of scope — the reference is written so an agent never configures a licence key or trips a paywall, and it flags the Skiper attribution requirement instead of quietly absorbing it. Details in [ui-registries.md](skills/ouu-shiit/reference/ui-registries.md).
+
+Two of the four build on Motion, one on the older `framer-motion` package, which is the same project under its previous name. Installing both ships the animation engine twice, so the reference tells the agent to match whatever the project already has.
 
 A registry component is not exempt from the contract. These libraries rarely honour `prefers-reduced-motion` on their own, several allocate a WebGL context, and several bind scroll listeners that will fight a smooth-scroll library — so the same six rules below apply to code you installed rather than wrote.
 
@@ -138,13 +142,14 @@ skills/ouu-shiit/
 └── reference/
     ├── usage-map.md        where each effect belongs, and where it does not
     ├── design-references.md  impeccable, the taste skill, the DESIGN.md catalog
-    ├── ui-registries.md    Cult UI, Skiper UI, Watermelon UI — the free tiers
+    ├── ui-registries.md    Cult UI, Kokonut UI, Skiper UI, Watermelon UI — the free tiers
     ├── react-three-fiber.md
     ├── spline.md
     ├── liquid-glass.md
     ├── shader-gradient.md
     ├── liquid-logo.md
     ├── lenis.md
+    ├── motion.md
     └── stringtune.md
 assets/                     banner and mark
 install.sh install.cmd      installer, built on the skills CLI
@@ -162,7 +167,7 @@ Read it for structure and calibration, then derive the actual palette and type f
 
 ## Credits
 
-Builds on the work of [`pmndrs/react-three-fiber`](https://github.com/pmndrs/react-three-fiber), [Spline](https://spline.design), [`pbakaus/impeccable`](https://github.com/pbakaus/impeccable), [`Leonxlnx/taste-skill`](https://github.com/Leonxlnx/taste-skill), [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills), [`nolly-studio/cult-ui`](https://github.com/nolly-studio/cult-ui), [Skiper UI](https://skiper-ui.com), [`WatermelonCorp`](https://github.com/WatermelonCorp), and the [skills](https://github.com/vercel-labs/skills) CLI. Each linked technology and component library belongs to its own authors; this repository only documents how to use them well, and documents their free tiers only.
+Builds on the work of [`pmndrs/react-three-fiber`](https://github.com/pmndrs/react-three-fiber), [Spline](https://spline.design), [`motion`](https://motion.dev), [`pbakaus/impeccable`](https://github.com/pbakaus/impeccable), [`Leonxlnx/taste-skill`](https://github.com/Leonxlnx/taste-skill), [`vercel-labs/agent-skills`](https://github.com/vercel-labs/agent-skills), [`nolly-studio/cult-ui`](https://github.com/nolly-studio/cult-ui), [Kokonut UI](https://kokonutui.com), [Skiper UI](https://skiper-ui.com), [`WatermelonCorp`](https://github.com/WatermelonCorp), and the [skills](https://github.com/vercel-labs/skills) CLI. Each linked technology and component library belongs to its own authors; this repository only documents how to use them well, and documents their free tiers only.
 
 ## License
 

@@ -140,6 +140,11 @@
       <g transform="translate(1054 216)">
         <rect x="0" y="0" width="138" height="34" rx="17" fill="url(#chip)" stroke="url(#edge)" stroke-width="1"/>
         <circle cx="21" cy="17" r="3.4" fill="#FBBF24"/>
+        <text x="36" y="22" fill="#D5DAEA">Motion</text>
+      </g>
+      <g transform="translate(1054 262)">
+        <rect x="0" y="0" width="138" height="34" rx="17" fill="url(#chip)" stroke="url(#edge)" stroke-width="1"/>
+        <circle cx="21" cy="17" r="3.4" fill="#60A5FA"/>
         <text x="36" y="22" fill="#D5DAEA">StringTune</text>
       </g>
     </g>

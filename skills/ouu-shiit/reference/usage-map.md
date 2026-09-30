@@ -19,6 +19,7 @@ Pick by **job**, then confirm against **visitor mode**. The mode names what succ
 | **liquidglass.js** ([ref](liquid-glass.md)) | Floating chrome: header/nav over content, control cluster over a canvas, modal/filter panel, floating action bar | Toast, tooltip chrome, media overlay controls | Static cards on static backgrounds, anything needing a contrast guarantee over unknown content, stacked glass on glass |
 | **liquid-logo** ([ref](liquid-logo.md)) | Intro/reveal moment at first load; footer wordmark; large logo on a brand/About page | Section divider wordmark, loading state | Nav bar, favicon, small sizes, any place the logo must stay legible, repeated positions |
 | **Lenis** ([ref](lenis.md)) | Whole-page scroll feel on Persuade/Experience surfaces; scroll-driven storytelling | Portfolio, campaign microsites, pinned-section sequences | Operate dashboards, docs, long tables, search results, mobile-first sites where native momentum is better |
+| **Motion** ([ref](motion.md)) | Scroll-linked reveals, parallax, sticky-pinned sequences, layout and exit animation — anything that reads scroll without taking it over | Any React surface that needs one scroll-driven moment; the safe pairing with Lenis; the base layer under most registry components | Simple hover and focus states (use CSS), pages already committed to GSAP, a project that only needs smooth scroll |
 | **StringTune** ([ref](stringtune.md)) | Scroll-choreographed marketing sections with many small moments | Campaign pages, cursor-reactive detail work | Anywhere a differently-supported library would be safer — it is young and thinly documented |
 
 ## Check the pre-built version first
@@ -27,11 +28,12 @@ Four of these effects already exist as free, copy-paste React components in shad
 
 | Effect | Registry component | Skip building it when |
 |---|---|---|
-| Liquid glass | Cult UI `distorted-glass` | The project is React + shadcn; a fixed glass panel is enough; there is no need to react to live DOM behind it |
+| Liquid glass | Cult UI `distorted-glass`; Kokonut UI `liquid-glass-card` | The project is React + shadcn; a fixed glass panel is enough; there is no need to react to live DOM behind it |
 | Liquid metal | Cult UI `hero-liquid-metal`, `metal-button` | The moment is a styled brand accent, not a bespoke shader on the user's own logo asset |
 | Shader blur / refraction | Cult UI `shader-lens-blur`, `morph-surface` | The blur is decorative; the effect does not need to track app state |
 | Animated gradient background | Cult UI `bg-animated-gradient`, `canvas-fractal-grid`; Watermelon UI animated backgrounds | The background is not the page's one focal moment, or the brief does not need a configurable gradient |
-| Scroll-reactive marquee / section | Skiper UI scroll components | Nothing else on the page owns scroll |
+| Particles, shimmer, small animated details | Kokonut UI `particle-button`, `shimmer-text`, `ai-prompt` | The detail is a piece of a bigger composition rather than the composition itself |
+| Scroll-reactive marquee / section | Skiper UI scroll components; Motion direct in Cult and Kokonut components | Nothing else on the page owns scroll |
 
 Do not use a registry component as a substitute for the decision. It still has to pass "what job does this do" and it still has to satisfy the contract — in particular, none of these libraries reliably honours `prefers-reduced-motion` on its own, and several bind scroll listeners that will fight a smooth-scroll library. Full detail, including which tiers are paid and which require attribution, is [ui-registries.md](ui-registries.md).
 
@@ -68,6 +70,8 @@ Bad answers: "it looks modern"; "the card needed something"; "the reference site
 
 Lenis and StringTune replace native scrolling with a smoothed one. That trade is only worth it when the page is *about* its scroll — a story told in sequence, a pinned scene, a horizontal gallery. On a page where the user is scanning to find something and leave, smoothing makes the site feel slower and breaks expectations. When in doubt, do not smooth. `prefers-reduced-motion` always wins, and Lenis honors it by default while StringTune may not.
 
+Motion is not in that trade at all. It reads the scroll position rather than replacing it, so it never changes how the page feels to scroll — it only decides what moves as a result. Reaching for Motion costs bundle size, not scroll feel. See [motion.md](motion.md).
+
 ## One owner for scroll
 
 This is the rule that breaks pages most often. Exactly one thing may own scroll position:
@@ -80,6 +84,8 @@ This is the rule that breaks pages most often. Exactly one thing may own scroll 
 | **StringTune smooth mode** | The page is built on StringTune's CSS-variable model. No Lenis alongside it. |
 
 Never combine them. Lenis plus ScrollControls, or Lenis plus StringTune's smooth mode, produces scroll that fights itself — the symptom is judder, doubled easing, or a page that will not settle. If you need 3D that responds to scroll *and* smooth scroll, pick native scroll plus Lenis and drive your `useFrame` work from the scroll value, rather than reaching for ScrollControls.
+
+**Reads are not ownership, and that is the whole distinction.** Motion, CSS `position: sticky`, `IntersectionObserver`, and scroll-linked animation on the native `ScrollTimeline` all *read* the scroll position. They compose with any owner above — Motion over Lenis is the standard pairing and needs no adapter. `ScrollControls` and StringTune's smooth mode *own* the position, which is why they are on the list and the readers are not. When two things seem to fight, one of them is an owner you forgot about.
 
 Nested scroll containers (modals, drawers, code blocks, horizontal galleries) always opt out of the page's scroll owner — `data-lenis-prevent` for Lenis, `outside-container` for StringTune.
 
