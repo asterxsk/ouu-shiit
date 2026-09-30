@@ -22,6 +22,10 @@ Pick by **job**, then confirm against **visitor mode**. The mode names what succ
 | **Motion** ([ref](motion.md)) | Scroll-linked reveals, parallax, sticky-pinned sequences, layout and exit animation — anything that reads scroll without taking it over | Any React surface that needs one scroll-driven moment; the safe pairing with Lenis; the base layer under most registry components | Simple hover and focus states (use CSS), pages already committed to GSAP, a project that only needs smooth scroll |
 | **StringTune** ([ref](stringtune.md)) | Scroll-choreographed marketing sections with many small moments | Campaign pages, cursor-reactive detail work | Anywhere a differently-supported library would be safer — it is young and thinly documented |
 
+## Settle the section before the effect
+
+A hero, navbar, CTA, footer, or pricing page has a shape that exists independently of any effect. Decide that shape first, or the effect is decorating an undecided container. Five galleries collect real examples of exactly those sections — screenshots, no code, so they inform the container rather than the effect: [design-galleries.md](design-galleries.md). Hero from Supahero, navbar pattern from Navbar Gallery, CTA form from CTA.gallery, footer archetype from Footer, pricing layout from PricingPages.design.
+
 ## Check the pre-built version first
 
 Four of these effects already exist as free, copy-paste React components in shadcn registries, with the ordinary UI around them included. When the project is React with shadcn configured, look there before writing shader or WebGL code — a component someone else maintains is smaller than a scene you hand-build, and easier for the user's team to edit later.

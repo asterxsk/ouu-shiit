@@ -5,3 +5,7 @@
 # local search/caching tool state
 /graft/
 .ignore
+
+# agent scratch
+_scout/
+

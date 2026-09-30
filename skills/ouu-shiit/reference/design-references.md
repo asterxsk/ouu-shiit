@@ -10,6 +10,8 @@ Three installed references back this skill. They answer questions this skill del
 
 Plus **impeccable**, which owns direction and craft in the normal case.
 
+Section-level shape — what a hero, navbar, CTA, footer, or pricing page actually looks like — comes from a separate set of five galleries, documented in [design-galleries.md](design-galleries.md). They publish screenshots, not code, so they inform the container rather than the effect.
+
 ## design-taste-frontend
 
 The anti-slop frontend skill (Leonxlnx/taste-skill, MIT, ~91k stars). It gives the agent a design read, three dials, and a long list of banned defaults.
@@ -71,7 +73,8 @@ https://raw.githubusercontent.com/VoltAgent/awesome-design-md/main/design-md/<br
 ## How the three fit the build
 
 1. **Direction** — impeccable (or design-taste-frontend when the brief is a marketing page with no committed world). Settle the mode, the world, and the motion budget.
-2. **Effect** — this skill. Pick one effect from [usage-map.md](usage-map.md), load its reference, build it against the contract.
-3. **Pre-built** — [ui-registries.md](ui-registries.md), when the effect is one Cult UI, Kokonut UI, Skiper UI, or Watermelon UI already ships as a free component. Free tiers only.
-4. **Tokens** — the DESIGN.md catalog, when a named reference needs concrete values.
-5. **Audit** — web-design-guidelines for the interface rules, the effect's own Pitfalls section for the GPU and scroll rules, and design-taste-frontend's pre-flight check for the taste rules. One batched pass, then stop.
+2. **Section shape** — [design-galleries.md](design-galleries.md), when the surface is a hero, navbar, CTA, footer, or pricing page and what that section should be has not been settled. This decides the container, before any effect goes in it.
+3. **Effect** — this skill. Pick one effect from [usage-map.md](usage-map.md), load its reference, build it against the contract.
+4. **Pre-built** — [ui-registries.md](ui-registries.md), when the effect is one Cult UI, Kokonut UI, Skiper UI, or Watermelon UI already ships as a free component. Free tiers only.
+5. **Tokens** — the DESIGN.md catalog, when a named reference needs concrete values.
+6. **Audit** — web-design-guidelines for the interface rules, the effect's own Pitfalls section for the GPU and scroll rules, and design-taste-frontend's pre-flight check for the taste rules. One batched pass, then stop.

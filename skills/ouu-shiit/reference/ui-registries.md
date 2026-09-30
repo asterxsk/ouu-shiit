@@ -1,10 +1,10 @@
 # UI registries
 
-Three component registries that overlap this skill's effect layer. They are the "do not hand-roll it" escape hatch: before writing a custom glass panel, shader background, or liquid-metal mark from scratch, check whether someone already ships it as a copy-paste component that matches the project's stack.
+Four component registries that overlap this skill's effect layer. They are the "do not hand-roll it" escape hatch: before writing a custom glass panel, shader background, or liquid-metal mark from scratch, check whether someone already ships it as a copy-paste component that matches the project's stack.
 
 They are also the risk. A registry component arrives with its own animation loop, its own dependencies, and its own opinion about reduced motion — none of which are covered by this skill's contract until you check. Treat a registry component as a starting point that has to pass the same six rules as anything you build yourself, not as a finished answer.
 
-All three are **shadcn registry** libraries. That is the shared architecture and the shared constraint: they install into a project that already has shadcn configured (`components.json`, Tailwind, a `cn()` helper), by fetching JSON from a registry URL and writing source files into the project. The component is yours to edit afterwards — which is the point, and also why nothing is versioned for you.
+All four are **shadcn registry** libraries. That is the shared architecture and the shared constraint: they install into a project that already has shadcn configured (`components.json`, Tailwind, a `cn()` helper), by fetching JSON from a registry URL and writing source files into the project. The component is yours to edit afterwards — which is the point, and also why nothing is versioned for you.
 
 | Site | What it is | Cost | Best for | Install |
 |---|---|---|---|---|

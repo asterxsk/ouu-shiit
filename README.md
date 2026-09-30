@@ -102,6 +102,20 @@ Picking between them — which effect belongs on which surface, and where every 
 
 It also documents the three design references it is built to work with: [design-references.md](skills/ouu-shiit/reference/design-references.md).
 
+## Settle the section before the effect
+
+A hero, navbar, CTA, footer, or pricing page has a shape that exists independently of any effect you put in it. Five galleries collect real examples of exactly those sections — screenshots of shipped sites, no code, so they inform the container rather than the effect.
+
+| Gallery | Collects | Ships code |
+|---|---|---|
+| [Supahero](https://supahero.io) | Hero sections — the first screen | No |
+| [PricingPages.design](https://pricingpages.design) | Pricing pages | No |
+| [Navbar Gallery](https://www.navbar.gallery) | Navigation bars | No |
+| [CTA.gallery](https://www.cta.gallery) | Individual call-to-actions | No |
+| [Footer](https://www.footer.design) | Whole website footers | No |
+
+All five are free to browse and none of them publishes source, components, or a registry — that distinction matters, because these galleries are reference material while [ui-registries.md](skills/ouu-shiit/reference/ui-registries.md) is the installable half. Details, including which entries are sponsored placement and what the licensing actually allows, in [design-galleries.md](skills/ouu-shiit/reference/design-galleries.md).
+
 ## Before you build it, check if it exists
 
 Several of these effects ship as free, copy-paste React components in public shadcn registries, with the ordinary UI around them included. The skill checks there first when a project is already React with shadcn configured — a maintained component beats a hand-rolled scene.
@@ -142,6 +156,7 @@ skills/ouu-shiit/
 └── reference/
     ├── usage-map.md        where each effect belongs, and where it does not
     ├── design-references.md  impeccable, the taste skill, the DESIGN.md catalog
+    ├── design-galleries.md  hero, pricing, navbar, CTA, and footer galleries
     ├── ui-registries.md    Cult UI, Kokonut UI, Skiper UI, Watermelon UI — the free tiers
     ├── react-three-fiber.md
     ├── spline.md
