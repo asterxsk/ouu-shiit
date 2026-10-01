@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 400" width="1280" height="400" role="img" aria-label="ouu-shiit — GPU effects and scroll layers for the web">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 400" width="1280" height="400" role="img" aria-label="ouu-shiit — effects, motion, and video for any creative surface">
   <title>ouu-shiit</title>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -101,7 +101,7 @@
 
     <rect x="180" y="238" width="300" height="3" rx="1.5" fill="url(#rule)"/>
 
-    <text x="180" y="286" class="sans" font-size="21" fill="#C3C9E0">GPU effects and scroll layers for the web —</text>
+    <text x="180" y="286" class="sans" font-size="21" fill="#C3C9E0">Effects, motion, and video for any surface —</text>
     <text x="180" y="316" class="sans" font-size="21" fill="#8E96B4">built to ship, measured, and switched off cleanly.</text>
 
     <!-- chips -->
@@ -125,6 +125,11 @@
         <rect x="0" y="0" width="190" height="34" rx="17" fill="url(#chip)" stroke="url(#edge)" stroke-width="1"/>
         <circle cx="21" cy="17" r="3.4" fill="#A78BFA"/>
         <text x="36" y="22" fill="#D5DAEA">ShaderGradient</text>
+      </g>
+      <g transform="translate(848 308)">
+        <rect x="0" y="0" width="190" height="34" rx="17" fill="url(#chip)" stroke="url(#edge)" stroke-width="1"/>
+        <circle cx="21" cy="17" r="3.4" fill="#F472B6"/>
+        <text x="36" y="22" fill="#D5DAEA">HyperFrames</text>
       </g>
 
       <g transform="translate(1054 124)">
