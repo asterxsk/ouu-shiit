@@ -40,7 +40,19 @@ Or clone and run it locally, which lets you configure the target agent and scope
 git clone --depth 1 https://github.com/asterxsk/ouu-shiit && cd ouu-shiit && ./install.sh
 ```
 
-On Windows, from Git Bash the same script works; from `cmd.exe` use `install.cmd`.
+On Windows, `install.ps1` does the same from PowerShell:
+
+```powershell
+./install.ps1
+```
+
+Or without cloning:
+
+```powershell
+irm https://raw.githubusercontent.com/asterxsk/ouu-shiit/main/install.ps1 | iex
+```
+
+Everywhere else on Windows: from Git Bash the shell script works as-is, and from `cmd.exe` use `install.cmd`.
 
 ### What the installer adds
 
@@ -65,6 +77,14 @@ Installer options, by environment variable:
 AGENT='*' ./install.sh          # every agent on this machine
 SCOPE= ./install.sh             # this project only
 SKILL=0 ./install.sh            # ouu-shiit alone
+```
+
+`install.ps1` takes the same four as parameters — `-Agent`, `-Scope`, `-Skill`, `-Video` — and falls back to the environment variables of the same name. It splits `SCOPE` into two values rather than one: `-g` (the default) for the user directory, `project` for the current project — `-Scope project`. PowerShell cannot hold an empty environment variable, so an empty `SCOPE` has no equivalent there.
+
+```powershell
+./install.ps1 -Agent '*'        # every agent on this machine
+./install.ps1 -Scope project    # this project only
+./install.ps1 -Skill 0          # ouu-shiit alone
 ```
 
 ### Manual install
@@ -195,7 +215,8 @@ skills/ouu-shiit/
     ├── motion.md
     └── stringtune.md
 assets/                     banner and mark
-install.sh install.cmd      installer, built on the skills CLI
+install.sh                  installer, built on the skills CLI
+install.ps1 install.cmd     the same, for PowerShell and cmd.exe
 ```
 
 ## Optional: the DESIGN.md catalog
