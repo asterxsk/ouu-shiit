@@ -28,8 +28,13 @@ fi
 add() {
   printf '\n\033[1m→ npx skills add %s\033[0m\n' "$*"
   # SCOPE is intentionally unquoted: it is a flag or empty.
+  #
+  # </dev/null is load-bearing under `curl | sh`. The shell reads this script
+  # from stdin, and npx inherits that stdin — the CLI drains it, so the shell
+  # hits EOF after the first add and exits 0 having installed one of the five
+  # skills. Detaching the child from stdin keeps the script readable.
   # shellcheck disable=SC2086
-  npx -y skills add "$@" $SCOPE -a "$AGENT" -y
+  npx -y skills add "$@" $SCOPE -a "$AGENT" -y </dev/null
 }
 
 printf '\n\033[1mouu-shiit\033[0m — effects, motion, and video for any surface\n'
