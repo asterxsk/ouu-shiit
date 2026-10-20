@@ -110,6 +110,8 @@ Restart your agent afterwards so it picks up the new skills.
 
 ## Which medium
 
+One rule applies before any effect and does not change with the medium: labels — eyebrows, kickers, table headers, captions, footers, page numbers — are serif italic, sentence case, untracked, never tracked uppercase mono. That is [labels.md](skills/ouu-shiit/reference/labels.md).
+
 Read [mediums.md](skills/ouu-shiit/reference/mediums.md) first. It is the router: what is being made decides which references are relevant and which contract applies. It also carries the stand-down rule — this skill is an effect and motion layer, and on a native-mobile UI or a deck's argument it hands off rather than improvising.
 
 | The brief is… | Load |
@@ -201,6 +203,7 @@ skills/ouu-shiit/
 ├── SKILL.md                the skill: inventory, router, order of operations, the contracts
 └── reference/
     ├── mediums.md          the router — which medium takes which reference
+    ├── labels.md           the label rule — serif italic, sentence case, every medium
     ├── usage-map.md        where each web effect belongs, and where it does not
     ├── design-references.md  impeccable, the taste skill, the DESIGN.md catalog
     ├── design-galleries.md  hero, pricing, navbar, CTA, and footer galleries

@@ -2,6 +2,8 @@
 
 Read this **first**, before [usage-map.md](usage-map.md) and before loading any technology reference. It answers the question that comes before every other question in this skill: *what is actually being made?*
 
+**One obligation survives the routing.** Whatever the medium, the artifact's small labels — eyebrow, kickers, table headers, captions, footers, page numbers — follow [labels.md](labels.md): serif italic, sentence case, untracked. It is the only rule in this skill that does not change with the medium.
+
 **Stand down when the medium is out of scope.** This skill is an effect and motion layer. It carries deep references for the web and for video, and routing rows for everything else. If the request is an Android app's information architecture, an iOS onboarding flow, or a slide deck's argument, the work belongs to another skill — say so and hand off, rather than stretching a web effect to cover it. A broad trigger is not a broad claim. Being wrong about what this skill can do is worse than not being invoked.
 
 ## The routing table
